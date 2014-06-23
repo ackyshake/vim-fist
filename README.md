@@ -35,8 +35,7 @@ And you're done! Why are you still reading this? Go fist!
 ## FAQ
 > What is the deal with the name "Fist"?
 
-Taken from "**F**ast G**ist** for Vim that doesn't suck and doesn't require
-another vim dependency plugin because that's stupid." Or because "Gisty" was
+Taken from <i>"<b>F</b>ast G<b>ist</b> for Vim that is totally awesome"</i> Or because "Gisty" was
 too good and was already taken. Or because the Author
 racked his brain and couldn't think of anything else. You decide! Either way,
 Fist.vim was born!
