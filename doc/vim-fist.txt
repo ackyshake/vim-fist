@@ -1,0 +1,66 @@
+*vim-fist.txt*          Super simple gist support for Vim
+
+
+                        VIM REFERENCE MANUAL    by Akshay Hegde
+
+
+Help on using Fist.vim                                               *fist.vim*
+
+1. Introduction                         |vim_fist-intro|
+2. Configuration                        |vim_fist-configuration|
+
+==============================================================================
+ 1. INTRODUCTION                                               *vim_fist-intro*
+
+Fist.vim adds super simple and fast gisting support for vim. Fist.vim works
+with a visual selection and it also works if you already have some content in
+your clipboard.
+
+==============================================================================
+2. CONFIGURATION                                       *vim_fist-configuration*
+
+The following aspects of fist.vim's behavior are configurable using the
+following options:
+
+|'g:fist_in_private'|           Makes the gist private.
+|'g:fist_opens_browser'|        Fist.vim will open the gist in the browser.
+|'g:fist_anonymously'|          Make the gist anonymous.
+
+------------------------------------------------------------------------------
+                                                          *'g:fist_in_private'*
+Values: numeric                                                               ~
+Default: 0                                                                    ~
+
+Makes the gist private.
+
+If you were expecting an easter egg here because of the variable name, you
+were wrong!
+
+------------------------------------------------------------------------------
+                                                       *'g:fist_opens_browser'*
+Values: numeric                                                               ~
+Default: 1                                                                    ~
+
+By default, fist.vim will open the newly created gist in the browser.
+
+If you would like to prevent this, set this to 0 in your |vimrc| like so:
+>
+    let g:fist_opens_browser = 0
+<
+
+------------------------------------------------------------------------------
+                                                         *'g:fist_anonymously'*
+Values: numeric                                                               ~
+Default: 1                                                                    ~
+
+By default, fist.vim will create an anonymous gist. If you have already set up
+gist command line tool, you can tell fist.vim to create a gist under your
+username, put this in your |vimrc|:
+
+>
+    let g:fist_anonymously = 0
+<
+------------------------------------------------------------------------------
+
+Template From: https://github.com/dahu/Area-41/
+vim:tw=78:et:ft=help:norl:
