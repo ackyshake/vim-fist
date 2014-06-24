@@ -1,7 +1,7 @@
-" VimCompletesMe.vim - For super simple gisting from Vim
-" Maintainer:          Akshay Hegde <http://github.com/ajh17>
-" Version:             0.3
-" Website:             <http://github.com/ajh17/vim-fist>
+" fist.vim:    For super simple gisting from Vim
+" Maintainer:  Akshay Hegde <http://github.com/ajh17>
+" Version:     0.1
+" Website:     <http://github.com/ajh17/vim-fist>
 
 " Vimscript Setup: {{{1
 if exists("g:loaded_vimfist") || v:version < 703 || &compatible
