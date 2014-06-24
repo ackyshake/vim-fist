@@ -1,6 +1,3 @@
-***Totally not done! Come back later!***
-
-
 # fist.vim
 Fast, simple and super awesome Gist-ing for Vim.
 
@@ -20,6 +17,8 @@ paste:
 
     cd ~/.vim/bundle
     git clone git://github.com/ajh17/vim-fist.git
+
+Once the helptags have been generated, see `:h vim-fist` for usage.
 
 
 ## Setup
