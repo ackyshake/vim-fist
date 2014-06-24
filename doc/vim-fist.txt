@@ -4,18 +4,19 @@
                         VIM REFERENCE MANUAL    by Akshay Hegde
 
 
-Help on using Fist.vim                                               *fist.vim*
+Help on using Fist of Vim                                            *vim-fist*
 
 1. Introduction                                                |vim_fist-intro|
 2. Setup                                                       |vim_fist-setup|
-3. Configuration                                       |vim_fist-configuration|
+3. Usage                                                       |vim-fist-usage|
+4. Configuration                                       |vim_fist-configuration|
 
 ==============================================================================
  1. INTRODUCTION                                               *vim_fist-intro*
 
-Fist.vim adds super simple and fast gisting support for vim. Fist.vim works
-with a visual selection and it also works if you already have some content in
-your clipboard.
+Fist of Vim adds super simple and fast gisting support for vim. Fist of Vim
+works with a visual selection and it also works if you already have some
+content in your clipboard.
 
 ==============================================================================
 2. SETUP                                                       *vim_fist-setup*
@@ -34,13 +35,49 @@ with the gist command line tool using your Github username and password.
 <
 
 ==============================================================================
-3. CONFIGURATION                                       *vim_fist-configuration*
+3. USAGE                                                       *vim_fist-usage*
 
-The following aspects of fist.vim's behavior are configurable using the
+Only breathing is easier than using Fist of Vim.
+
+A. Maps                                                        *vim_fist-maps*~
+
+Fist of Vim defines these mappings:
+
+    1. <leader>p {motion}   -   Create a new gist (normal mode)
+    2. <leader>p            -   Create a new gist (visual mode)
+    3. <leader>u {motion}   -   Update an existing gist (normal mode)
+    4. <leader>u            -   Update an existing gist (visual mode)
+
+
+B. Creating a new Gist~
+
+To create a new gist, you can either visually select the contents and use
+<leader>p to create a gist, or you can use it in normal mode with a motion.
+
+For example, in normal mode, <leader>p} will create a new gist from the
+current cursor position until the next paragraph. gg<leader>pG will create
+a new gist of the entire file. See |motion.txt| for motions you can use. If
+you haven't read this help file already, prepare to have your mind blown.
+
+
+C. Updating an existing Gist~
+
+To update an existing gist, make sure that you have logged into gist, and have
+set *fist_anonymously* to 0. After this, you can use <leader>u {motion} in
+normal mode, similar to creating a new gist and your gist will be updated!
+
+Similarly, visually select the contents and then use <leader>u to also have
+the gist updated.
+
+
+==============================================================================
+4. CONFIGURATION                                       *vim_fist-configuration*
+
+The following aspects of Fist of Vim's behavior are configurable using the
 following options:
 
 |'g:fist_in_private'|           Makes the gist private.
-|'g:fist_opens_browser'|        Fist.vim will open the gist in the browser.
+|'g:fist_opens_browser'|        Fist of Vim will open the gist in the browser.
 |'g:fist_anonymously'|          Make the gist anonymous.
 
 ------------------------------------------------------------------------------
@@ -48,23 +85,23 @@ following options:
 Values: numeric                                                               ~
 Default: 0                                                                    ~
 
-By default, fist.vim will create a public gist. Anyone can see this gist.
+By default, Fist of Vim will create a public gist. Anyone can see this gist.
 
-If you want to create a secret gist, you could tell fist.vim to do so by 
+If you want to create a secret gist, you could tell Fist of Vim to do so by
 putting the following in your |vimrc|:
 
 >
     let g:fist_in_private = 1
 <
 
-Then, only people who you give the url to, will be able to see this gist.
+Then, only people who you give the URL to, will be able to see this gist.
 
 ------------------------------------------------------------------------------
                                                        *'g:fist_opens_browser'*
 Values: numeric                                                               ~
 Default: 1                                                                    ~
 
-By default, fist.vim will open the newly created gist in the browser.
+By default, Fist of Vim will open the newly created gist in the browser.
 
 If you would like to prevent this, set this to 0 in your |vimrc| like so:
 >
@@ -76,9 +113,9 @@ If you would like to prevent this, set this to 0 in your |vimrc| like so:
 Values: numeric                                                               ~
 Default: 1                                                                    ~
 
-By default, fist.vim will create an anonymous gist. If you have already set up
-gist command line tool, you can tell fist.vim to create a gist under your
-username, put this in your |vimrc|:
+By default, Fist of Vim will create an anonymous gist. If you have already set
+up gist command line tool, you can tell Fist of Vim to create a gist under
+your user name, put this in your |vimrc|:
 
 >
     let g:fist_anonymously = 0
