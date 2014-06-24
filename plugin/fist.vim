@@ -26,7 +26,15 @@ if !exists('g:fist_opens_browser')
 endif
 
 " Functions: {{{1
-function! Fist()
+function! Fist(type, ...)
+    if a:0
+        silent exe "normal! gvy"
+    elseif a:type == 'line'
+        silent exe "normal! '[V']y"
+    else
+        silent exe "normal! `[v`]y"
+    endif
+
     let s:fist_command = ""
     if g:fist_anonymously
         let s:fist_command .= "a"
@@ -42,11 +50,5 @@ function! Fist()
 endfunction
 
 " Maps: {{{1
-nnoremap <buffer><leader>p :call Fist()<CR>
-if has("unix")
-    if system('uname') =~ 'Darwin'
-        xnoremap <buffer><leader>p :<C-u>let @* = getline("'<,'>")<CR>:call Fist()<CR>
-    else
-        xnoremap <buffer><leader>p :<C-u>let @+ = getline("'<,'>")<CR>:call Fist()<CR>
-    endif
-endif
+nnoremap <buffer> <leader>p :call Fist()<CR>
+xnoremap <silent> <leader>p :<C-u>call Fist(visualmode(), 1)<CR>
