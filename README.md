@@ -36,14 +36,13 @@ And you're done! Why are you still reading this? Go fist!
 
 Taken from <i>"<b>F</b>ast G<b>ist</b> for Vim that is totally awesome"</i>. Or
 because "Gisty" was too good and was already taken. Or because the Author
-racked his brain and couldn't think of anything else, you decide! Either way,
-Fist.vim was born!
+racked his brain and couldn't think of anything else. You get to decide! Either
+way, Fist.vim was born!
 
 > Why another gist plugin for Vim?
 
-Mostly as a (small) exercise, but which one would you rather use? A 80 line
+Mostly as a (small) exercise, but which one would you rather use? A 35 line
 plugin or a 1000 line plugin if both do essentially the same thing?
-
 
 ## License
 
