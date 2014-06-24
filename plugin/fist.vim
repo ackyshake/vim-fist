@@ -4,6 +4,9 @@
 " Website:     <http://github.com/ajh17/vim-fist>
 
 " Vimscript Setup: {{{1
+if !executable('gist')
+    finish
+endif
 if exists("g:loaded_vimfist") || v:version < 703 || &compatible
     finish
 endif
