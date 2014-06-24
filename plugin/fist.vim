@@ -1,6 +1,6 @@
 " Fist of Vim - For super simple and fast gisting from Vim
 " Maintainer:  Akshay Hegde <http://github.com/ajh17>
-" Version:     1.1
+" Version:     1.2
 " Website:     <http://github.com/ajh17/vim-fist>
 
 " Vimscript Setup: {{{1
