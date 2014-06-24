@@ -42,8 +42,8 @@ endfunction
 nnoremap <buffer><leader>p :call Fist()<CR>
 if has("unix")
     if system('uname') =~ 'Darwin'
-        xnoremap <buffer><leader>p :norm! "*y <bar> :call Fist()<CR>
+        xnoremap <buffer><leader>p :norm! "*y<CR>:call Fist()<CR>
     else
-        xnoremap <buffer><leader>p :norm! "+y <bar> :call Fist()<CR>
+        xnoremap <buffer><leader>p :norm! "+y<CR>:call Fist()<CR>
     endif
 endif
