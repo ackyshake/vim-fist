@@ -33,16 +33,18 @@ function! Fist(type, update, ...)
     endif
 
     let s:fist_command = ""
-    if g:fist_anonymously
-        let s:fist_command .= "a"
-    endif
     if g:fist_opens_browser
         let s:fist_command .= "o"
     endif
     if g:fist_in_private
         let s:fist_command .= "p"
     endif
-    silent execute "!gist -Pc" . s:fist_command . a:update . " -f " . bufname("%")
+    if g:fist_anonymously
+        let s:fist_command .= "a"
+        silent execute "!gist -Pc" . s:fist_command . " -f " . bufname("%")
+    elseif
+        silent execute "!gist -Pc" . s:fist_command . a:update . " -f " . bufname("%")
+    endif
     redraw!
     let @f = @*
 endfunction
