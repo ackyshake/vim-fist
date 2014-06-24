@@ -11,7 +11,7 @@ let g:loaded_vimfist = 1
 
 " Options: {{{1
 if !exists('g:fist_anonymously')
-    let g:fist_anonymously = 0
+    let g:fist_anonymously = 1
 endif
 
 if !exists('g:fist_in_private')
@@ -32,7 +32,7 @@ function! Fist(type, update, ...)
         silent exe "normal! `[v`]y"
     endif
 
-    let s:fist_command = "" . a:update
+    let s:fist_command = ""
     if g:fist_anonymously
         let s:fist_command .= "a"
     endif
@@ -42,7 +42,7 @@ function! Fist(type, update, ...)
     if g:fist_in_private
         let s:fist_command .= "p"
     endif
-    silent execute "!gist -Pc" . s:fist_command . " -f " . bufname("%")
+    silent execute "!gist -Pc" . s:fist_command . a:update . " -f " . bufname("%")
     redraw!
     let @f = @*
 endfunction
@@ -52,11 +52,11 @@ function! FistNew(type)
 endfunction
 
 function! FistUpdate(type)
-    call Fist(visualmode(), "u " . @f, 1)
+    call Fist(visualmode(), " -u " . @f, 1)
 endfunction
 
 " Maps: {{{1
 nnoremap <silent> <leader>p :set opfunc=FistNew<CR>g@
 xnoremap <silent> <leader>p :<C-u>call Fist(visualmode(), "", 1)<CR>
 nnoremap <silent> <leader>u :set opfunc=FistUpdate<CR>g@
-xnoremap <silent> <leader>u :<C-u>call Fist(visualmode(), "u" . @f, 1)<CR>
+xnoremap <silent> <leader>u :<C-u>call Fist(visualmode(), " -u " . @f, 1)<CR>
