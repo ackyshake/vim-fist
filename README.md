@@ -1,4 +1,4 @@
-# fist.vim
+# Fist of Vim
 Fast, simple and super awesome Gist-ing for Vim.
 
 <sub>If there were any more superlatives, I would be charging for this!</sub>
