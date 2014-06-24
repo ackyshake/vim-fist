@@ -1,6 +1,6 @@
 " fist.vim:    For super simple gisting from Vim
 " Maintainer:  Akshay Hegde <http://github.com/ajh17>
-" Version:     0.1
+" Version:     1.0
 " Website:     <http://github.com/ajh17/vim-fist>
 
 " Vimscript Setup: {{{1
@@ -14,12 +14,15 @@ if !exists('g:fist_anonymous')
     let g:fist_anonymous = 0
 endif
 
-if !exists('g:fist_open_browser')
-    let g:fist_open_browser = 1
-endif
-
 " Functions: {{{1
-function! s:fist(args)
+function! Fist()
+    if !g:fist_anonymous
+        silent !gist -Pacos -f <C-r>%<CR>:redraw!<CR>
+    elseif
+        silent !gist -Pcos -f <C-r>%<CR>:redraw!<CR>
+    endif
 endfunction
 
 " Maps: {{{1
+nnoremap <leader>p :call Fist()
+xnoremap <leader>p :norm y | call Fist()
