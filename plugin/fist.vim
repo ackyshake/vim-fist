@@ -23,7 +23,7 @@ if !exists('g:fist_opens_browser')
 endif
 
 " Functions: {{{1
-function! Fist(type, ...)
+function! Fist(type, update, ...)
     if a:0
         silent exe "normal! gvy"
     elseif a:type == 'line'
@@ -33,19 +33,32 @@ function! Fist(type, ...)
     endif
 
     let s:fist_command = ""
-    if g:fist_anonymously
-        let s:fist_command .= "a"
-    endif
     if g:fist_opens_browser
         let s:fist_command .= "o"
     endif
     if g:fist_in_private
         let s:fist_command .= "p"
     endif
-    silent execute "!gist -Pcs" . s:fist_command . " -f " . bufname("%")
+    if g:fist_anonymously
+        let s:fist_command .= "a"
+        silent execute "!gist -Pc" . s:fist_command . " -f " . bufname("%")
+    elseif
+        silent execute "!gist -Pc" . s:fist_command . a:update . " -f " . bufname("%")
+    endif
     redraw!
+    let @f = @*
+endfunction
+
+function! FistNew(type)
+    call Fist(1, "")
+endfunction
+
+function! FistUpdate(type)
+    call Fist(visualmode(), " -u " . @f, 1)
 endfunction
 
 " Maps: {{{1
-nnoremap <silent> <leader>p :set opfunc=Fist<CR>g@
-xnoremap <silent> <leader>p :<C-u>call Fist(visualmode(), 1)<CR>
+nnoremap <silent> <leader>p :set opfunc=FistNew<CR>g@
+xnoremap <silent> <leader>p :<C-u>call Fist(visualmode(), "", 1)<CR>
+nnoremap <silent> <leader>u :set opfunc=FistUpdate<CR>g@
+xnoremap <silent> <leader>u :<C-u>call Fist(visualmode(), " -u " . @f, 1)<CR>
