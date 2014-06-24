@@ -10,7 +10,7 @@ endif
 let g:loaded_vimfist = 1
 
 " Options: {{{1
-if !exists('g:fist_anonymous')
+if !exists('g:fist_anonymously')
     let g:fist_anonymously = 1
 endif
 
@@ -18,17 +18,17 @@ if !exists('g:fist_in_private')
     let g:fist_in_private = 0
 endif
 
-if !exists('g:fist_open_browser')
+if !exists('g:fist_opens_browser')
     let g:fist_opens_browser = 1
 endif
 
 " Functions: {{{1
 function! Fist()
     let s:fist_command = ""
-    if g:fist_anonymous
+    if g:fist_anonymously
         let s:fist_command .= "a"
     endif
-    if g:fist_open_browser
+    if g:fist_opens_browser
         let s:fist_command .= "o"
     endif
     if g:fist_in_private
