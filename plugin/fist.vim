@@ -14,15 +14,36 @@ if !exists('g:fist_anonymous')
     let g:fist_anonymous = 0
 endif
 
+if !exists('g:fist_in_private')
+    let g:fist_in_private = 0
+endif
+
+if !exists('g:fist_open_browser')
+    let g:fist_open_browser = 1
+endif
+
 " Functions: {{{1
 function! Fist()
-    if !g:fist_anonymous
-        silent !gist -Pacos -f <C-r>%<CR>:redraw!<CR>
-    elseif
-        silent !gist -Pcos -f <C-r>%<CR>:redraw!<CR>
+    let s:fist_command = ""
+    if g:fist_anonymous
+        let s:fist_command .= "a"
     endif
+    if g:fist_open_browser
+        let s:fist_command .= "o"
+    endif
+    if g:fist_in_private
+        let s:fist_command .= "p"
+    endif
+    silent execute "!gist -Pcs" . s:fist_command . " -f " . bufname("%")
+    redraw!
 endfunction
 
 " Maps: {{{1
-nnoremap <leader>p :call Fist()
-xnoremap <leader>p :norm y | call Fist()
+nnoremap <buffer><leader>p :call Fist()<CR>
+if has("unix")
+    if system('uname') =~ 'Darwin'
+        xnoremap <buffer><leader>p :norm! "*y <bar> :call Fist()<CR>
+    else
+        xnoremap <buffer><leader>p :norm! "+y <bar> :call Fist()<CR>
+    endif
+endif
