@@ -6,8 +6,9 @@
 
 Help on using Fist.vim                                               *fist.vim*
 
-1. Introduction                         |vim_fist-intro|
-2. Configuration                        |vim_fist-configuration|
+1. Introduction                                                |vim_fist-intro|
+2. Setup                                                       |vim_fist-setup|
+3. Configuration                                       |vim_fist-configuration|
 
 ==============================================================================
  1. INTRODUCTION                                               *vim_fist-intro*
@@ -17,7 +18,23 @@ with a visual selection and it also works if you already have some content in
 your clipboard.
 
 ==============================================================================
-2. CONFIGURATION                                       *vim_fist-configuration*
+2. SETUP                                                       *vim_fist-setup*
+
+This plugin depends on the gist command line client. You can install it with:
+
+>
+    [sudo] gem install gist
+<
+
+If you want to make gists under your username, you also have to authenticate
+with the gist command line tool using your Github username and password.
+
+>
+    gist --login
+<
+
+==============================================================================
+3. CONFIGURATION                                       *vim_fist-configuration*
 
 The following aspects of fist.vim's behavior are configurable using the
 following options:
