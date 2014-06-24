@@ -31,10 +31,16 @@ following options:
 Values: numeric                                                               ~
 Default: 0                                                                    ~
 
-Makes the gist private.
+By default, fist.vim will create a public gist. Anyone can see this gist.
 
-If you were expecting an easter egg here because of the variable name, you
-were wrong!
+If you want to create a secret gist, you could tell fist.vim to do so by 
+putting the following in your |vimrc|:
+
+>
+    let g:fist_in_private = 1
+<
+
+Then, only people who you give the url to, will be able to see this gist.
 
 ------------------------------------------------------------------------------
                                                        *'g:fist_opens_browser'*
