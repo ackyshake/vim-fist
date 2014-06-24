@@ -50,5 +50,5 @@ function! Fist(type, ...)
 endfunction
 
 " Maps: {{{1
-nnoremap <buffer> <leader>p :call Fist()<CR>
+nnoremap <silent> <leader>p :set opfunc=Fist<CR>g@
 xnoremap <silent> <leader>p :<C-u>call Fist(visualmode(), 1)<CR>
