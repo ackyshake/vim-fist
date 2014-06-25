@@ -6,6 +6,10 @@ Fast, simple and super awesome Gist-ing for Vim.
 ## Dependencies
 - [gist](https://github.com/defunkt/gist.git)
 
+Install it and configure by running:
+
+    [sudo] gem install gist
+    gist --login
 
 ## Install
 If you don't have a preferred installation method, I recommend installing
@@ -13,20 +17,8 @@ If you don't have a preferred installation method, I recommend installing
 paste:
 
     cd ~/.vim/bundle
-    git clone git://github.com/ajh17/vim-fist.git
 
 Once the helptags have been generated, see `:h vim-fist` for usage.
-
-
-## Setup
-First, you want to make sure you have the gist command line tool setup and
-happy:
-
-    [sudo] gem install gist
-    gist --login
-
-And you're done! Why are you still reading this? Go try out the Fist of Vim™!
-
 
 ## Usage
 Only breathing is easier than using Fist of Vim. Nevertheless:
