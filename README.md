@@ -28,6 +28,31 @@ happy:
 And you're done! Why are you still reading this? Go try out the Fist of Vim™!
 
 
+## Usage
+Only breathing is easier than using Fist of Vim. Nevertheless:
+
+Fist of Vim defines two mappings:
+
+`<leader>p` - Create a new gist
+
+`<leader>u` - Update an existing gist (See `:h vim-fist` for usage)
+
+You can use Fist of Vim with a visual selection, or in normal mode, in which
+case, it is motion based.
+
+For example `<leader>pG` will create a new gist from the cursor to the end of
+file. See `:h motion.txt` for more motions.
+
+## Configuration
+Fist of Vim offers these variables so it can be configured to your exacting
+standards:
+
+`g:fist_anonymously`   - Creates a new anonymous gist.
+
+`g:fist_opens_browser` - Open the gist in the browser automatically.
+
+`g:fist_in_private`    - Create a secret gist
+
 ## FAQ
 > What is the deal with the name "Fist"?
 
