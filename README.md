@@ -3,7 +3,6 @@ Fast, simple and super awesome Gist-ing for Vim.
 
 <sub>If there were any more superlatives, I would be charging for this!</sub>
 
-
 ## Dependencies
 - [gist](https://github.com/defunkt/gist.git)
 
@@ -20,21 +19,22 @@ Once the helptags have been generated, see `:h vim-fist` for usage.
 
 
 ## Setup
-First, you want to make sure you have the gist command line setup and happy:
+First, you want to make sure you have the gist command line tool setup and
+happy:
 
     [sudo] gem install gist
     gist --login
 
-And you're done! Why are you still reading this? Go fist!
+And you're done! Why are you still reading this? Go try out the Fist of Vim™!
 
 
 ## FAQ
 > What is the deal with the name "Fist"?
 
-Taken from <i>"<b>F</b>ast G<b>ist</b> for Vim that is totally awesome"</i>. Or
-because "Gisty" was too good and was already taken. Or because the Author
-racked his brain and couldn't think of anything else. You get to decide! Either
-way, Fist.vim was born!
+Taken from <i>"<b>F</b>ast G<b>ist</b> for Vim that is simply the bee's
+knees"</i>. Or because "Gisty" was too good and was already taken. Or because
+the Author racked his brain and couldn't think of anything else. You get to
+decide! Either way, Fist of Vim was born!
 
 ## License
 Copyright (c) Akshay Hegde. Distributed under the same terms as Vim itself. See
