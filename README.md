@@ -17,6 +17,7 @@ If you don't have a preferred installation method, I recommend installing
 paste:
 
     cd ~/.vim/bundle
+    git clone https://github.com/ajh17/vim-fist.git
 
 Once the helptags have been generated, see `:h vim-fist` for usage.
 
