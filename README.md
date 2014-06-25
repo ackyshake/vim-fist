@@ -4,9 +4,9 @@ Fast, simple and super awesome Gist-ing for Vim.
 <sub>If there were any more superlatives, I would be charging for this!</sub>
 
 ## Dependencies
-- [gist](https://github.com/defunkt/gist.git)
+- [gist command line tool](https://github.com/defunkt/gist.git)
 
-Install it and configure by running:
+Install and configure it by running:
 
     [sudo] gem install gist
     gist --login
@@ -27,13 +27,13 @@ Fist of Vim defines two mappings:
 
 `<leader>p` - Create a new gist
 
-`<leader>u` - Update an existing gist (See `:h vim-fist` for usage)
+`<leader>u` - Update an existing gist
 
 You can use Fist of Vim with a visual selection, or in normal mode, in which
 case, it is motion based.
 
 For example `<leader>pG` will create a new gist from the cursor to the end of
-file. See `:h motion.txt` for more motions.
+file.
 
 ## Configuration
 Fist of Vim offers these variables so it can be configured to your exacting
