@@ -28,6 +28,9 @@ Fist of Vim defines two mappings:
 
 `<leader>u` - Update an existing gist
 
+Fist of Vim also sets the filetype and syntax completely automatically without
+you having to set it! Impressive, huh?
+
 You can use Fist of Vim with a visual selection, or in normal mode, in which
 case, it is motion based.
 
@@ -50,8 +53,8 @@ Example: `nmap <leader>f <plug>fov_new`
 
 
 ### Configuration
-Fist of Vim offers these variables so it can be configured to your exacting
-standards:
+Fist of Vim offers these hilariously named variables so it can be configured to
+your exacting standards:
 
 `g:fist_anonymously`   - Creates a new anonymous gist.
 
