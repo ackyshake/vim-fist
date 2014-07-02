@@ -15,7 +15,7 @@ If you don't have a preferred installation method, I recommend installing
 [pathogen.vim](https://github.com/tpope/vim-pathogen), and then simply copy and
 paste:
 
-    cd ~/.vim/bundle && git clone https://github.com/ajh17/vim-fist.git
+    cd ~/.vim/bundle && git clone git://github.com/ajh17/vim-fist.git
 
 Once the helptags have been generated, see `:h vim-fist` for usage.
 
