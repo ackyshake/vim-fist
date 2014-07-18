@@ -8,7 +8,7 @@ Help on using Fist of Vim                                            *vim-fist*
 
 1. Introduction                                                |vim_fist-intro|
 2. Setup                                                       |vim_fist-setup|
-3. Usage                                                       |vim-fist-usage|
+3. Usage                                                       |vim_fist-usage|
 4. Configuration                                       |vim_fist-configuration|
 
 ==============================================================================
