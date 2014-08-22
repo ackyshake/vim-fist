@@ -56,14 +56,26 @@ endfunction
 function! FistUpdate(type)
   call Fist(visualmode(), " -u " . @f, 1)
 endfunction
+
+function! FistList()
+  copen
+  return system("gist -l")
 endfunction
 
 " Maps: {{{1
+if exists(":Dispatch")
+  nnoremap <silent> <plug>fov_list          :Dispatch gist -l<CR>
+else
+  nnoremap <silent> <plug>fov_list          :cexpr FistList()<CR>
+endif
 nnoremap <silent> <plug>fov_new           :set opfunc=FistNew<CR>g@
 nnoremap <silent> <plug>fov_update        :set opfunc=FistUpdate<CR>g@
 xnoremap <silent> <plug>fov_visual_new    :<C-u>call Fist(visualmode(), "", 1)<CR>
 xnoremap <silent> <plug>fov_visual_update :<C-u>call Fist(visualmode(), " - u " . @f, 1)<CR>
 
+if !hasmapto('<plug>fov_list')
+  nmap <unique><silent> <leader>fl <plug>fov_list
+endif
 if !hasmapto('<plug>fov_new')
   nmap <unique><silent> <leader>p <plug>fov_new
 endif
