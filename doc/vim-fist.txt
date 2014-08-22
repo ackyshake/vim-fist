@@ -47,6 +47,7 @@ Fist of Vim defines these mappings:
     2. <leader>p            -   Create a new gist (visual mode)
     3. <leader>u {motion}   -   Update an existing gist (normal mode)
     4. <leader>u            -   Update an existing gist (visual mode)
+    5. <leader>fl           -   List a user's gist (normal mode)
 
 
 B. Creating a new Gist~
@@ -69,6 +70,13 @@ normal mode, similar to creating a new gist and your gist will be updated!
 Similarly, visually select the contents and then use <leader>u to also have
 the gist updated.
 
+D. Listing User Gists~
+
+To list your gists, make sure you have logged into gist and have the latest
+gist command line tool (specifically gist version >= 3.7) and then you can use
+<leader>fl to have the quickfix list, list all your gists you have created.
+
+In the quickfix list, you can use |gx| to open the gist in your browser.
 
 ==============================================================================
 4. CONFIGURATION                                       *vim_fist-configuration*
