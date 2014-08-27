@@ -74,7 +74,7 @@ xnoremap <silent> <plug>fov_visual_new    :<C-u>call Fist(visualmode(), "", 1)<C
 xnoremap <silent> <plug>fov_visual_update :<C-u>call Fist(visualmode(), " - u " . @f, 1)<CR>
 
 if !hasmapto('<plug>fov_list')
-  nmap <unique><silent> <leader>fl <plug>fov_list
+  nmap <unique><silent> <leader>l <plug>fov_list
 endif
 if !hasmapto('<plug>fov_new')
   nmap <unique><silent> <leader>p <plug>fov_new
