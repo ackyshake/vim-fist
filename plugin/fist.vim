@@ -27,9 +27,9 @@ function! Fist(type, update, ...)
   if a:0
     silent exe "normal! gvy"
   elseif a:type == 'line'
-    silent exe "normal! '[V']y"
+    silent exe "normal! `[V`]Y"
   else
-    silent exe "normal! `[v`]y"
+    silent exe "normal! `[v`]Y"
   endif
 
   let s:fist_command = ""
