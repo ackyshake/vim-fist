@@ -49,6 +49,24 @@ Fist of Vim defines these mappings:
     4. <leader>u            -   Update an existing gist (visual mode)
     5. <leader>l            -   List a user's gist (normal mode)
 
+If you enable the |fist_no_maps| option, you will need to map the above
+manually. Refer to the below list for the functions used:
+
+    1. <plug>fov_new           - Create a new gist (normal mode)
+    2. <plug>fov_visual_new    - Create a new gist (visual mode)
+    3. <plug>fov_update        - Update an existing gist (normal mode)
+    4. <plug>fov_visual_update - Update an existing gist (visual mode)
+    5. <plug>fov_list          - List a user's gist (normal mode)
+
+To map any of these, simply define the mappings in your |vimrc| file. Please
+don't use a recursive mapping when defining a map. An example of how to create
+a mapping is given below, one for normal and one for visual mode,
+respectively:
+
+>
+    nmap <leader>p <plug>fov_new
+    xmap <leader>p <plug>fov_visual_new
+<
 
 B. Creating a new Gist~
 
@@ -88,6 +106,7 @@ following options:
 |'g:fist_in_private'|           Makes the gist private.
 |'g:fist_opens_browser'|        Fist of Vim will open the gist in the browser.
 |'g:fist_anonymously'|          Make the gist anonymous.
+|'g:fist_no_maps'|              Don't define any mappings.
 
 ------------------------------------------------------------------------------
                                                           *'g:fist_in_private'*
@@ -128,6 +147,19 @@ your user name, put this in your |vimrc|:
 
 >
     let g:fist_anonymously = 0
+<
+------------------------------------------------------------------------------
+                                                             *'g:fist_no_maps'*
+Values: numeric                                                               ~
+Default: 0                                                                    ~
+
+By default, Fist of Vim defines useful mappings to create, update and list
+gists. If you would prefer disabling these mappings, set this option to 1.
+Caution: If you enable this option, you will need to define the mappings you
+want manually. Refer to *vim_fist-maps* maps section to learn how.
+
+>
+    let g:fist_no_maps = 1
 <
 ------------------------------------------------------------------------------
 
