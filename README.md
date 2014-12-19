@@ -28,6 +28,8 @@ Fist of Vim defines two mappings:
 
 `<leader>u` - Update an existing gist
 
+`<leader>l` - List your gists
+
 Fist of Vim also sets the filetype and syntax completely automatically without
 you having to set it! Impressive, huh?
 
@@ -49,6 +51,8 @@ To define your own set of mappings, simply create mappings for these functions:
 
 `<plug>fov_visual_update` - Update a gist (visual mode)
 
+`<plug>fov_list`          - List your gists.
+
 Example: `nmap <leader>f <plug>fov_new`
 
 
@@ -61,6 +65,8 @@ your exacting standards:
 `g:fist_opens_browser` - Open the gist in the browser automatically.
 
 `g:fist_in_private`    - Create a secret gist
+
+`g:fist_no_maps`       - Don't define any mappings automatically.
 
 
 ## FAQ
