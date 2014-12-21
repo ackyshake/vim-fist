@@ -27,7 +27,7 @@ if !exists('g:fist_no_maps')
 endif
 
 " Functions: {{{1
-function! Fist(type, update, ...)
+function! s:fist(type, update, ...)
   if a:0                             " Invoked from visual mode
     silent exe "normal! gvy"
   elseif a:type ==# "char"           " Invoked from a characterwise motion
@@ -55,14 +55,14 @@ function! Fist(type, update, ...)
 endfunction
 
 function! s:fistnew(type)
-  call Fist(a:type, "")
+  call s:fist(a:type, "")
 endfunction
 
 function! s:fistupdate(type)
-  call Fist(visualmode(), " -u " . @f, 1)
+  call s:fist(visualmode(), " -u " . @f, 1)
 endfunction
 
-function! FistList()
+function! s:fistlist()
   copen
   return system("gist -l")
 endfunction
@@ -71,12 +71,12 @@ endfunction
 if exists(":Dispatch")
   nnoremap <silent> <plug>fov_list          :Dispatch gist -l<CR>
 else
-  nnoremap <silent> <plug>fov_list          :cexpr FistList()<CR>
+  nnoremap <silent> <plug>fov_list          :cexpr <SID>fistlist()<CR>
 endif
 nnoremap <silent> <plug>fov_new           :<C-u>set opfunc=<SID>fistnew<CR>g@
 nnoremap <silent> <plug>fov_update        :<C-u>set opfunc=<SID>fistupdate<CR>g@
-xnoremap <silent> <plug>fov_visual_new    :<C-u>call Fist(visualmode(), "", 1)<CR>
-xnoremap <silent> <plug>fov_visual_update :<C-u>call Fist(visualmode(), " - u " . @f, 1)<CR>
+xnoremap <silent> <plug>fov_visual_new    :<C-u>call <SID>fist(visualmode(), "", 1)<CR>
+xnoremap <silent> <plug>fov_visual_update :<C-u>call <SID>fist(visualmode(), " - u " . @f, 1)<CR>
 
 if !g:fist_no_maps
   if !hasmapto('<plug>fov_list')
