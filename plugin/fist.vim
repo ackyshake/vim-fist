@@ -47,7 +47,7 @@ function! s:fist(type, update, ...)
     let s:fist_command .= "a"
     silent execute "!gist -Pc" . s:fist_command . " -f " . bufname("%")
   else
-    silent execute "!gist -Pc" . s:fist_command . a:update . " -f " . bufname("%")
+    silent execute "!gist -Pc" . s:fist_command . a:update
   endif
 
   redraw!
@@ -59,7 +59,7 @@ function! s:fistnew(type)
 endfunction
 
 function! s:fistupdate(type)
-  call s:fist(a:type, " -u " . @f)
+  call s:fist(a:type, "u" . @f)
 endfunction
 
 function! s:fistlist()
@@ -76,7 +76,7 @@ endif
 nnoremap <silent> <plug>fov_new           :<C-u>set opfunc=<SID>fistnew<CR>g@
 nnoremap <silent> <plug>fov_update        :<C-u>set opfunc=<SID>fistupdate<CR>g@
 xnoremap <silent> <plug>fov_visual_new    :<C-u>call <SID>fist(visualmode(), "", 1)<CR>
-xnoremap <silent> <plug>fov_visual_update :<C-u>call <SID>fist(visualmode(), " - u " . @f, 1)<CR>
+xnoremap <silent> <plug>fov_visual_update :<C-u>call <SID>fist(visualmode(), "u" . @f, 1)<CR>
 
 if !g:fist_no_maps
   if !hasmapto('<plug>fov_list')
