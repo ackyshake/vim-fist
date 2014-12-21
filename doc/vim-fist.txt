@@ -14,20 +14,23 @@ Help on using Fist of Vim                                            *vim-fist*
 ==============================================================================
  1. INTRODUCTION                                               *vim_fist-intro*
 
-Fist of Vim adds super simple and fast gisting support for vim. Fist of Vim
-works with a visual selection and it also works if you already have some
-content in your clipboard.
+Fist of Vim adds super simple Gist support to Vim. You can easily create or
+update a new Gist from normal or visual mode, or get a list of all your Gists
+in the |Quickfix| list.
 
 ==============================================================================
 2. SETUP                                                       *vim_fist-setup*
 
-This plugin depends on the gist command line client. You can install it with:
+This plugin depends on the gist command line client. Check it out on Github at
+https://github.com/defunkt/gist.
+
+You can install it with:
 
 >
     [sudo] gem install gist
 <
 
-If you want to make gists under your username, you also have to authenticate
+If you want to make Gists under your username, you also have to authenticate
 with the gist command line tool using your Github username and password.
 
 >
@@ -37,17 +40,15 @@ with the gist command line tool using your Github username and password.
 ==============================================================================
 3. USAGE                                                       *vim_fist-usage*
 
-Only breathing is easier than using Fist of Vim.
-
 A. Maps                                                        *vim_fist-maps*~
 
-Fist of Vim defines these mappings:
+Fist of Vim defines these mappings by default:
 
     1. <leader>p {motion}   -   Create a new gist (normal mode)
     2. <leader>p            -   Create a new gist (visual mode)
     3. <leader>u {motion}   -   Update an existing gist (normal mode)
     4. <leader>u            -   Update an existing gist (visual mode)
-    5. <leader>l            -   List a user's gist (normal mode)
+    5. <leader>l            -   List your Gists (normal mode, requires auth)
 
 If you enable the |fist_no_maps| option, you will need to map the above
 manually. Refer to the below list for the functions used:
@@ -56,18 +57,17 @@ manually. Refer to the below list for the functions used:
     2. <plug>fov_visual_new    - Create a new gist (visual mode)
     3. <plug>fov_update        - Update an existing gist (normal mode)
     4. <plug>fov_visual_update - Update an existing gist (visual mode)
-    5. <plug>fov_list          - List a user's gist (normal mode)
+    5. <plug>fov_list          - List your Gists (normal mode, requires auth)
 
 To map any of these, simply define the mappings in your |vimrc| file. Please
-don't use a recursive mapping when defining a map. An example of how to create
-a mapping is given below, one for normal and one for visual mode,
-respectively:
+don't use a recursive mapping when defining a map.
 
+An example of how to create a mapping is given below, one for normal and one
+for visual mode, respectively:
 >
     nmap <leader>p <plug>fov_new
     xmap <leader>p <plug>fov_visual_new
 <
-
 B. Creating a new Gist~
 
 To create a new gist, you can either visually select the contents and use
@@ -78,7 +78,6 @@ current cursor position until the next paragraph. gg<leader>pG will create
 a new gist of the entire file. See |motion.txt| for motions you can use. If
 you haven't read this help file already, prepare to have your mind blown.
 
-
 C. Updating an existing Gist~
 
 To update an existing gist, make sure that you have logged into gist, and have
@@ -88,14 +87,15 @@ normal mode, similar to creating a new gist and your gist will be updated!
 Similarly, visually select the contents and then use <leader>u to also have
 the gist updated.
 
-D. Listing User Gists~
+D. Listing Gists~
 
 To list your gists, make sure you have logged into gist and have the latest
 gist command line tool (specifically gist version >= 4.3.0) and then you can
 use <leader>l to have the quickfix list, list all your gists you have
 created.
 
-In the quickfix list, you can use |gx| to open the gist in your browser.
+In the quickfix list, you can use |gx| on a URL to open the gist in your
+browser.
 
 ==============================================================================
 4. CONFIGURATION                                       *vim_fist-configuration*
@@ -113,38 +113,34 @@ following options:
 Values: numeric                                                               ~
 Default: 0                                                                    ~
 
-By default, Fist of Vim will create a public gist. Anyone can see this gist.
+By default, Fist of Vim will create a public Gist. Anyone can see this Gist.
 
-If you want to create a secret gist, you could tell Fist of Vim to do so by
+If you want to create a secret Gist, you could tell Fist of Vim to do so by
 putting the following in your |vimrc|:
-
 >
     let g:fist_in_private = 1
 <
-
-Then, only people who you give the URL to, will be able to see this gist.
+Then, only people who you give the URL to, will be able to see this Gist.
 
 ------------------------------------------------------------------------------
                                                        *'g:fist_opens_browser'*
 Values: numeric                                                               ~
 Default: 1                                                                    ~
 
-By default, Fist of Vim will open the newly created gist in the browser.
+By default, Fist of Vim will open the newly created Gist in the browser.
 
 If you would like to prevent this, set this to 0 in your |vimrc| like so:
 >
     let g:fist_opens_browser = 0
 <
-
 ------------------------------------------------------------------------------
                                                          *'g:fist_anonymously'*
 Values: numeric                                                               ~
 Default: 1                                                                    ~
 
-By default, Fist of Vim will create an anonymous gist. If you have already set
-up gist command line tool, you can tell Fist of Vim to create a gist under
+By default, Fist of Vim will create an anonymous Gist. If you have already set
+up gist command line tool, you can tell Fist of Vim to create a Gist under
 your user name, put this in your |vimrc|:
-
 >
     let g:fist_anonymously = 0
 <
@@ -157,7 +153,6 @@ By default, Fist of Vim defines useful mappings to create, update and list
 gists. If you would prefer disabling these mappings, set this option to 1.
 Caution: If you enable this option, you will need to define the mappings you
 want manually. Refer to *vim_fist-maps* maps section to learn how.
-
 >
     let g:fist_no_maps = 1
 <
