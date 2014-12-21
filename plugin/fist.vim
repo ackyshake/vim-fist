@@ -68,30 +68,22 @@ function! s:fistlist()
 endfunction
 
 " Maps: {{{1
+nnoremap <silent> <plug>fov_new           :<C-u>set opfunc=<SID>fistnew<CR>g@
+nnoremap <silent> <plug>fov_update        :<C-u>set opfunc=<SID>fistupdate<CR>g@
+xnoremap <silent> <plug>fov_visual_new    :<C-u>call <SID>fist(visualmode(), "", 1)<CR>
+xnoremap <silent> <plug>fov_visual_update :<C-u>call <SID>fist(visualmode(), "u" . @f, 1)<CR>
 if exists(":Dispatch")
   nnoremap <silent> <plug>fov_list          :Dispatch gist -l<CR>
 else
   nnoremap <silent> <plug>fov_list          :cexpr <SID>fistlist()<CR>
 endif
-nnoremap <silent> <plug>fov_new           :<C-u>set opfunc=<SID>fistnew<CR>g@
-nnoremap <silent> <plug>fov_update        :<C-u>set opfunc=<SID>fistupdate<CR>g@
-xnoremap <silent> <plug>fov_visual_new    :<C-u>call <SID>fist(visualmode(), "", 1)<CR>
-xnoremap <silent> <plug>fov_visual_update :<C-u>call <SID>fist(visualmode(), "u" . @f, 1)<CR>
 
 if !g:fist_no_maps
-  if !hasmapto('<plug>fov_list')
-    nmap <unique><silent> <leader>l <plug>fov_list
-  endif
-  if !hasmapto('<plug>fov_new')
-    nmap <unique><silent> <leader>p <plug>fov_new
-  endif
-  if !hasmapto('<plug>fov_update')
-    nmap <unique><silent> <leader>u <plug>fov_update
-  endif
-  if !hasmapto('<plug>fov_visual_new')
-    xmap <unique><silent> <leader>p <plug>fov_visual_new
-  endif
-  if !hasmapto('<plug>fov_visual_update')
-    xmap <unique><silent> <leader>u <plug>fov_visual_update
+  nmap <leader>p <plug>fov_new
+  xmap <leader>p <plug>fov_visual_new
+  nmap <leader>u <plug>fov_update
+  xmap <leader>u <plug>fov_visual_update
+  if filereadable($HOME."/.gist")
+      nmap <leader>l <plug>fov_list
   endif
 endif
