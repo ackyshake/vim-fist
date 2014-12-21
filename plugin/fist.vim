@@ -28,12 +28,14 @@ endif
 
 " Functions: {{{1
 function! Fist(type, update, ...)
-  if a:0
+  if a:0                             " Invoked from visual mode
     silent exe "normal! gvy"
-  elseif a:type ==# 'line'
+  elseif a:type ==# "line"           " Invoked from a linewise motion
     silent exe "normal! '[V']y"
-  else
+  elseif a:type ==# "char"           " Invoked from a characterwise motion
     silent exe "normal! `[v`]y"
+  else                               " Invoked from a blockwise motion
+    silent exe "normal! `[\<C-V>`]y"
   endif
 
   let s:fist_command = ""
@@ -45,19 +47,20 @@ function! Fist(type, update, ...)
   endif
   if g:fist_anonymously
     let s:fist_command .= "a"
-    silent execute "!gist -Pc" . s:fist_command . " -f " . bufname("%")
+    silent execute "!gist -Pc" . s:fist_command . a:update . " -f " . bufname("%")
   else
     silent execute "!gist -Pc" . s:fist_command . a:update . " -f " . bufname("%")
   endif
+
   redraw!
   let @f = @*
 endfunction
 
-function! FistNew(type)
-  call Fist(1, "")
+function! s:fistnew(type)
+  call Fist(a:type, "")
 endfunction
 
-function! FistUpdate(type)
+function! s:fistupdate(type)
   call Fist(visualmode(), " -u " . @f, 1)
 endfunction
 
@@ -72,8 +75,8 @@ if exists(":Dispatch")
 else
   nnoremap <silent> <plug>fov_list          :cexpr FistList()<CR>
 endif
-nnoremap <silent> <plug>fov_new           :<C-u>set opfunc=FistNew<CR>g@
-nnoremap <silent> <plug>fov_update        :<C-u>set opfunc=FistUpdate<CR>g@
+nnoremap <silent> <plug>fov_new           :<C-u>set opfunc=<SID>fistnew<CR>g@
+nnoremap <silent> <plug>fov_update        :<C-u>set opfunc=<SID>fistupdate<CR>g@
 xnoremap <silent> <plug>fov_visual_new    :<C-u>call Fist(visualmode(), "", 1)<CR>
 xnoremap <silent> <plug>fov_visual_update :<C-u>call Fist(visualmode(), " - u " . @f, 1)<CR>
 
