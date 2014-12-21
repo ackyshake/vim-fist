@@ -30,10 +30,10 @@ endif
 function! Fist(type, update, ...)
   if a:0
     silent exe "normal! gvy"
-  elseif a:type == 'line'
-    silent exe "normal! `[V`]Y"
+  elseif a:type ==# 'line'
+    silent exe "normal! '[V']y"
   else
-    silent exe "normal! `[v`]Y"
+    silent exe "normal! `[v`]y"
   endif
 
   let s:fist_command = ""
@@ -72,8 +72,8 @@ if exists(":Dispatch")
 else
   nnoremap <silent> <plug>fov_list          :cexpr FistList()<CR>
 endif
-nnoremap <silent> <plug>fov_new           :set opfunc=FistNew<CR>g@
-nnoremap <silent> <plug>fov_update        :set opfunc=FistUpdate<CR>g@
+nnoremap <silent> <plug>fov_new           :<C-u>set opfunc=FistNew<CR>g@
+nnoremap <silent> <plug>fov_update        :<C-u>set opfunc=FistUpdate<CR>g@
 xnoremap <silent> <plug>fov_visual_new    :<C-u>call Fist(visualmode(), "", 1)<CR>
 xnoremap <silent> <plug>fov_visual_update :<C-u>call Fist(visualmode(), " - u " . @f, 1)<CR>
 
