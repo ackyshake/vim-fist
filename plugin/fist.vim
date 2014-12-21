@@ -1,4 +1,4 @@
-" Fist of Vim - For super simple and fast gisting from Vim
+" Fist of Vim - Super simple and fast gisting for Vim
 " Maintainer:  Akshay Hegde <http://github.com/ajh17>
 " Version:     1.4
 " Website:     <http://github.com/ajh17/vim-fist>
@@ -45,7 +45,7 @@ function! s:fist(type, update, ...)
   endif
   if g:fist_anonymously
     let s:fist_command .= "a"
-    silent execute "!gist -Pc" . s:fist_command . a:update . " -f " . bufname("%")
+    silent execute "!gist -Pc" . s:fist_command . " -f " . bufname("%")
   else
     silent execute "!gist -Pc" . s:fist_command . a:update . " -f " . bufname("%")
   endif
@@ -59,7 +59,7 @@ function! s:fistnew(type)
 endfunction
 
 function! s:fistupdate(type)
-  call s:fist(visualmode(), " -u " . @f, 1)
+  call s:fist(a:type, " -u " . @f)
 endfunction
 
 function! s:fistlist()
