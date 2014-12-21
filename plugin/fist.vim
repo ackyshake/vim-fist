@@ -30,12 +30,10 @@ endif
 function! Fist(type, update, ...)
   if a:0                             " Invoked from visual mode
     silent exe "normal! gvy"
-  elseif a:type ==# "line"           " Invoked from a linewise motion
-    silent exe "normal! '[V']y"
   elseif a:type ==# "char"           " Invoked from a characterwise motion
     silent exe "normal! `[v`]y"
-  else                               " Invoked from a blockwise motion
-    silent exe "normal! `[\<C-V>`]y"
+  else                               " Invoked from a linewise motion
+    silent exe "normal! '[V']y"
   endif
 
   let s:fist_command = ""
