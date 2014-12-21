@@ -4,7 +4,8 @@ Fast, simple and super awesome Gist-ing for Vim.
 <sub>If there were any more superlatives, I would be charging for this!</sub>
 
 ## Dependencies
-- [gist command line tool](https://github.com/defunkt/gist.git)
+- [gist](https://github.com/defunkt/gist.git) - "Potentially the best command
+  line gister"
 
 Install and configure it by running:
 
@@ -28,27 +29,27 @@ Fist of Vim defines these super simple mappings by default:
 
 `<leader>u` - Update an existing Gist
 
-`<leader>l` - List your Gists
+`<leader>l` - List your public Gists
 
 You can use create or update a Gist with a visual selection, or in normal mode,
 in which case, it is motion based.
 
 For example, in normal mode, `<leader>pG` will create a new Gist from the
-cursor to the end of file. In visual mode, simply select and then hit
+cursor to the end of file. In visual mode, you can simply select and then hit
 `<leader>p` to create a new Gist. 
 
 Fist of Vim also sets the filetype and syntax completely automatically without
 you having to set it!
 
-As the philosopher, Staples Inc., said, "That was easy!"
+As the philosopher, Staples Inc., once said, "That was easy!"
 
 ### Custom Maps
 Fist of Vim allows you to choose the Fist to hold the gavel with. In other
 words, you can assign your own maps for these:
 
-`<plug>fov_new`           - Create a new Gist
+`<plug>fov_new`           - Create a new Gist (normal mode)
 
-`<plug>fov_update`        - Update a Gist
+`<plug>fov_update`        - Update a Gist (normal mode)
 
 `<plug>fov_visual_new`    - Create a new Gist (visual mode)
 
@@ -56,7 +57,7 @@ words, you can assign your own maps for these:
 
 `<plug>fov_list`          - List your Gists.
 
-Example: `nmap <leader>f <plug>fov_new`
+Example: `nmap <leader>f <plug>fov_new`.
 
 ### Configuration
 Fist of Vim offers these hilariously named variables so it can be configured to
@@ -64,7 +65,7 @@ your exacting standards:
 
 `g:fist_anonymously`   - Creates a new anonymous Gist.
 
-`g:fist_opens_browser` - Open the Gist in the browser automatically.
+`g:fist_opens_browser` - Open the new/updated Gist in the browser.
 
 `g:fist_in_private`    - Create a secret Gist
 

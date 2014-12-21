@@ -83,6 +83,8 @@ C. Updating an existing Gist~
 To update an existing gist, make sure that you have logged into gist, and have
 set *fist_anonymously* to 0. After this, you can use <leader>u {motion} in
 normal mode, similar to creating a new gist and your gist will be updated!
+However, currently, you can only update the newest gist that you created with
+Fist of Vim.
 
 Similarly, visually select the contents and then use <leader>u to also have
 the gist updated.
