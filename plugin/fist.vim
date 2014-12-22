@@ -45,9 +45,9 @@ function! s:fist(type, update, ...)
   endif
   if g:fist_anonymously
     let s:fist_command .= "a"
-    silent execute "!gist -Pc" . s:fist_command . " -f " . bufname("%")
+    silent execute "!gist -Pc" . s:fist_command . "f " . bufname("%")
   else
-    silent execute "!gist -Pc" . s:fist_command . a:update
+    silent execute "!gist -Pc" . s:fist_command . a:update . "f " . bufname("%")
   endif
 
   redraw!
