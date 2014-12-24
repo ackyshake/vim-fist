@@ -109,6 +109,7 @@ following options:
 |'g:fist_opens_browser'|        Fist of Vim will open the gist in the browser.
 |'g:fist_anonymously'|          Make the gist anonymous.
 |'g:fist_no_maps'|              Don't define any mappings.
+|'g:fist_dispatch'|             Use vim-dispatch to asynchronously list gists.
 
 ------------------------------------------------------------------------------
                                                           *'g:fist_in_private'*
@@ -157,6 +158,18 @@ Caution: If you enable this option, you will need to define the mappings you
 want manually. Refer to *vim_fist-maps* maps section to learn how.
 >
     let g:fist_no_maps = 1
+<
+------------------------------------------------------------------------------
+                                                            *'g:fist_dispatch'*
+Values: numeric                                                               ~
+Default: 0                                                                    ~
+
+If you have dispatch.vim (https://github.com/tpope/vim-dispatch) installed, you
+can tell Fist of Vim to use an async operation when listing your gists. This
+will spawn a new process that does not block Vim's usage. Simply put this in
+your |vimrc|:
+>
+    let g:fist_dispatch = 1
 <
 ------------------------------------------------------------------------------
 

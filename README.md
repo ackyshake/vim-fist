@@ -71,6 +71,8 @@ your exacting standards:
 
 `g:fist_no_maps`       - Don't define any mappings automatically.
 
+`g:fist_dispatch`      - When listing Gists, do it asynchronously.
+
 ## FAQ
 > What is the deal with the name "Fist"?
 

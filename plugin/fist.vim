@@ -26,6 +26,10 @@ if !exists('g:fist_no_maps')
   let g:fist_no_maps = 0
 endif
 
+if !exists('g:fist_dispatch')
+  let g:fist_dispatch = 0
+endif
+
 " Functions: {{{1
 function! s:fist(type, update, ...)
   if a:0                             " Invoked from visual mode
@@ -78,7 +82,11 @@ nnoremap <silent> <plug>fov_new           :<C-u>set opfunc=<SID>fistnew<CR>g@
 nnoremap <silent> <plug>fov_update        :<C-u>set opfunc=<SID>fistupdate<CR>g@
 xnoremap <silent> <plug>fov_visual_new    :<C-u>call <SID>fist(visualmode(), "", 1)<CR>
 xnoremap <silent> <plug>fov_visual_update :<C-u>call <SID>fist(visualmode(), "u" . @f, 1)<CR>
-nnoremap <silent> <plug>fov_list          :call setqflist(<SID>fistlist()) <bar> copen<CR>
+if g:fist_dispatch && exists(":Dispatch")
+  nnoremap <silent> <plug>fov_list          :Dispatch gist -l<CR>
+else
+  nnoremap <silent> <plug>fov_list          :call setqflist(<SID>fistlist()) <bar> copen<CR>
+endif
 
 if !g:fist_no_maps
   nmap <leader>p <plug>fov_new
