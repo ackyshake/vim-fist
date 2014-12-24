@@ -63,8 +63,14 @@ function! s:fistupdate(type)
 endfunction
 
 function! s:fistlist()
-  copen
-  return system("gist -l")
+  let gists = system("gist -l")
+  let list = []
+  for line in split(gists, '\n')
+    if line =~# ':'
+      call add(list, {'text': matchstr(line, ' \zs.*'), 'filename': matchstr(line, '[\a-zA-Z0-9:\/.]\+')})
+    endif
+  endfor
+  return list
 endfunction
 
 " Maps: {{{1
@@ -72,11 +78,7 @@ nnoremap <silent> <plug>fov_new           :<C-u>set opfunc=<SID>fistnew<CR>g@
 nnoremap <silent> <plug>fov_update        :<C-u>set opfunc=<SID>fistupdate<CR>g@
 xnoremap <silent> <plug>fov_visual_new    :<C-u>call <SID>fist(visualmode(), "", 1)<CR>
 xnoremap <silent> <plug>fov_visual_update :<C-u>call <SID>fist(visualmode(), "u" . @f, 1)<CR>
-if exists(":Dispatch")
-  nnoremap <silent> <plug>fov_list          :Dispatch gist -l<CR>
-else
-  nnoremap <silent> <plug>fov_list          :cexpr <SID>fistlist()<CR>
-endif
+nnoremap <silent> <plug>fov_list          :call setqflist(<SID>fistlist()) <bar> copen<CR>
 
 if !g:fist_no_maps
   nmap <leader>p <plug>fov_new
