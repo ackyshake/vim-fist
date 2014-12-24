@@ -67,7 +67,7 @@ function! s:fistlist()
   let list = []
   for line in split(gists, '\n')
     if line =~# ':'
-      call add(list, {'text': matchstr(line, ' \zs.*'), 'filename': matchstr(line, '[\a-zA-Z0-9:\/.]\+')})
+      call add(list, {'text': matchstr(line, ' \zs.*'), 'filename': matchstr(line, 'http\S\+')})
     endif
   endfor
   return list
