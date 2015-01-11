@@ -33,11 +33,11 @@ endif
 " Functions: {{{1
 function! s:fist(type, update, ...)
   if a:0                             " Invoked from visual mode
-    silent exe "normal! gvy"
+    silent execute 'normal! gvy'
   elseif a:type ==# "char"           " Invoked from a characterwise motion
-    silent exe "normal! `[v`]y"
+    silent execute "normal! `[v`]y"
   else                               " Invoked from a linewise motion
-    silent exe "normal! '[V']y"
+    silent execute "normal! '[V']y"
   endif
 
   let s:fist_command = ""
