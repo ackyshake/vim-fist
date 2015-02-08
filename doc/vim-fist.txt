@@ -44,11 +44,14 @@ A. Maps                                                        *vim_fist-maps*~
 
 Fist of Vim defines these mappings by default:
 
-    1. <leader>p {motion}   -   Create a new gist (normal mode)
+    1. <leader>p{motion}    -   Create a new gist (normal mode)
     2. <leader>p            -   Create a new gist (visual mode)
-    3. <leader>u {motion}   -   Update an existing gist (normal mode)
+    3. <leader>u{motion}    -   Update an existing gist (normal mode)
     4. <leader>u            -   Update an existing gist (visual mode)
     5. <leader>l            -   List your Gists (normal mode, requires auth)
+
+You can use any of Vim's built in motions defined in |motion.txt| to replace
+the {motion} operator mentioned above.
 
 If you enable the |fist_no_maps| option, you will need to map the above
 manually. Refer to the below list for the functions used:
@@ -81,13 +84,21 @@ you haven't read this help file already, prepare to have your mind blown.
 C. Updating an existing Gist~
 
 To update an existing gist, make sure that you have logged into gist, and have
-set *fist_anonymously* to 0. After this, you can use <leader>u {motion} in
+set *fist_anonymously* to 0. After this, you can use <leader>u{motion} in
 normal mode, similar to creating a new gist and your gist will be updated!
-However, currently, you can only update the newest gist that you created with
-Fist of Vim.
 
 Similarly, visually select the contents and then use <leader>u to also have
 the gist updated.
+
+NOTE: Fist of Vim will only update the last created gist with Fist of Vim. If
+you want to update a different gist, simply set Vim's @f register to the gist
+url. Here is an example:
+>
+    let @f = https://gist.github.com/ajh17/ad63bf04ccad39de002b
+<
+You can then update the above gist url by using Fist of Vim's update gist
+mapping. Naturally, if you set a bad value for @f, or have overwrittten @f,
+the update will fail.
 
 D. Listing Gists~
 
