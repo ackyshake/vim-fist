@@ -4,7 +4,11 @@
 " Website:     <http://github.com/ajh17/vim-fist>
 
 " Vimscript Setup: {{{1
-if exists("g:loaded_vimfist") || v:version < 703 || &compatible || !executable('gist')
+if exists("g:loaded_vimfist") || v:version < 703 || &compatible
+  finish
+endif
+if !executable('gist')
+  echoerr "fist.vim: Gist is not installed, or could not be found in $PATH!"
   finish
 endif
 let g:loaded_vimfist = 1
