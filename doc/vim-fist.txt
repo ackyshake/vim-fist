@@ -83,9 +83,9 @@ you haven't read this help file already, prepare to have your mind blown.
 
 C. Updating an existing Gist~
 
-To update an existing gist, make sure that you have logged into gist, and have
-set *fist_anonymously* to 0. After this, you can use <leader>u{motion} in
-normal mode, similar to creating a new gist and your gist will be updated!
+To update an existing gist, make sure that you have logged into gist. After
+this, you can use <leader>u{motion} in normal mode, similar to creating a new
+gist and your gist will be updated!
 
 Similarly, visually select the contents and then use <leader>u to also have
 the gist updated.
@@ -118,7 +118,6 @@ following options:
 
 |'g:fist_in_private'|           Makes the gist private.
 |'g:fist_opens_browser'|        Fist of Vim will open the gist in the browser.
-|'g:fist_anonymously'|          Make the gist anonymous.
 |'g:fist_no_maps'|              Don't define any mappings.
 |'g:fist_dispatch'|             Use vim-dispatch to asynchronously list gists.
 
@@ -146,17 +145,6 @@ By default, Fist of Vim will open the newly created Gist in the browser.
 If you would like to prevent this, set this to 0 in your |vimrc| like so:
 >
     let g:fist_opens_browser = 0
-<
-------------------------------------------------------------------------------
-                                                         *'g:fist_anonymously'*
-Values: numeric                                                               ~
-Default: 1                                                                    ~
-
-By default, Fist of Vim will create an anonymous Gist. If you have already set
-up gist command line tool, you can tell Fist of Vim to create a Gist under
-your user name, put this in your |vimrc|:
->
-    let g:fist_anonymously = 0
 <
 ------------------------------------------------------------------------------
                                                              *'g:fist_no_maps'*

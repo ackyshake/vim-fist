@@ -63,8 +63,6 @@ Example: `nmap <leader>f <plug>fov_new`.
 Fist of Vim offers these hilariously named variables so it can be configured to
 your exacting standards:
 
-`g:fist_anonymously`   - Creates a new anonymous Gist.
-
 `g:fist_opens_browser` - Open the new/updated Gist in the browser.
 
 `g:fist_in_private`    - Create a secret Gist

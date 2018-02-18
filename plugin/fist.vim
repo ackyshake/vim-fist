@@ -14,10 +14,6 @@ endif
 let g:loaded_vimfist = 1
 
 " Options: {{{1
-if !exists('g:fist_anonymously')
-  let g:fist_anonymously = 1
-endif
-
 if !exists('g:fist_in_private')
   let g:fist_in_private = 0
 endif
@@ -51,12 +47,7 @@ function! s:fist(type, update, ...)
   if g:fist_in_private
     let s:fist_command .= "p"
   endif
-  if g:fist_anonymously
-    let s:fist_command .= "a"
-    silent execute "!gist -Pc" . s:fist_command . "f " . bufname("%")
-  else
-    silent execute "!gist -Pc" . s:fist_command . "f " . bufname("%") . a:update
-  endif
+  silent execute "!gist -Pc" . s:fist_command . "f " . bufname("%") . a:update
 
   redraw!
   let @f = @*
