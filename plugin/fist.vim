@@ -29,57 +29,15 @@ if !exists('g:fist_dispatch')
   let g:fist_dispatch = 0
 endif
 
-" Functions: {{{1
-function! s:fist(type, update, ...)
-  if a:0                             " Invoked from visual mode
-    silent execute 'normal! gvy'
-  elseif a:type ==# "char"           " Invoked from a characterwise motion
-    silent execute "normal! `[v`]y"
-  else                               " Invoked from a linewise motion
-    silent execute "normal! '[V']y"
-  endif
-
-  let s:fist_command = ""
-  if g:fist_opens_browser
-    let s:fist_command .= "o"
-  endif
-  if g:fist_in_private
-    let s:fist_command .= "p"
-  endif
-  silent execute "!gist -Pc" . s:fist_command . "f " . bufname("%") . a:update
-
-  redraw!
-  let @f = @*
-endfunction
-
-function! s:fistnew(type)
-  call s:fist(a:type, "")
-endfunction
-
-function! s:fistupdate(type)
-  call s:fist(a:type, ' -u ' . @f)
-endfunction
-
-function! s:fistlist()
-  let gists = system("gist -l")
-  let list = []
-  for line in split(gists, '\n')
-    if line =~# ':'
-      call add(list, {'text': matchstr(line, ' \zs.*'), 'filename': matchstr(line, 'http\S\+')})
-    endif
-  endfor
-  return list
-endfunction
-
 " Maps: {{{1
-nnoremap <silent> <plug>fov_new           :<C-u>set opfunc=<SID>fistnew<CR>g@
-nnoremap <silent> <plug>fov_update        :<C-u>set opfunc=<SID>fistupdate<CR>g@
-xnoremap <silent> <plug>fov_visual_new    :<C-u>call <SID>fist(visualmode(), "", 1)<CR>
-xnoremap <silent> <plug>fov_visual_update :<C-u>call <SID>fist(visualmode(), ' -u ' . @f, 1)<CR>
+nnoremap <silent> <plug>fov_new           :<C-u>set opfunc=fist#fistnew<CR>g@
+nnoremap <silent> <plug>fov_update        :<C-u>set opfunc=fist#fistupdate<CR>g@
+xnoremap <silent> <plug>fov_visual_new    :<C-u>call fist#fist(visualmode(), "", 1)<CR>
+xnoremap <silent> <plug>fov_visual_update :<C-u>call fist#fist(visualmode(), ' -u ' . @f, 1)<CR>
 if g:fist_dispatch && exists(":Dispatch")
   nnoremap <silent> <plug>fov_list          :Dispatch gist -l<CR>
 else
-  nnoremap <silent> <plug>fov_list          :call setqflist(<SID>fistlist()) <bar> copen<CR>
+  nnoremap <silent> <plug>fov_list          :call setqflist(fist#fistlist()) <bar> copen<CR>
 endif
 
 if !g:fist_no_maps
