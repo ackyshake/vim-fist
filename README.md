@@ -12,13 +12,13 @@ Install and configure it by running:
     [sudo] gem install gist && gist --login
 
 ## Install
-If you don't have a preferred installation method, I recommend installing
-[pathogen.vim](https://github.com/tpope/vim-pathogen), and then simply copy and
-paste:
+If you use Vim 8 or better, simply copy and paste:
 
-    cd ~/.vim/bundle && git clone git://github.com/ajh17/vim-fist.git
+    mkdir -p ~/.vim/pack/vendor/start/ && \
+        git clone git://github.com/ajh17/vim-fist.git ~/.vim/pack/vendor/start/vim-fist
 
-Once the helptags have been generated, see `:h vim-fist` for usage.
+Once the helptags have been generated (`:helptags ALL`), see `:h VimCompletesMe`
+for usage.
 
 ## Usage
 Only breathing is easier than using Fist of Vim.
