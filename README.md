@@ -14,8 +14,7 @@ Install and configure it by running:
 ## Install
 If you use Vim 8 or better, simply copy and paste:
 
-    mkdir -p ~/.vim/pack/vendor/start/ && \
-        git clone git://github.com/ajh17/vim-fist.git ~/.vim/pack/vendor/start/vim-fist
+    git clone git://github.com/ajh17/vim-fist.git ~/.vim/pack/vendor/start/vim-fist
 
 Once the helptags have been generated (`:helptags ALL`), see `:h VimCompletesMe`
 for usage.
