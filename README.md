@@ -16,7 +16,7 @@ If you use Vim 8 or better, simply copy and paste:
 
     git clone git://github.com/ajh17/vim-fist.git ~/.vim/pack/vendor/start/vim-fist
 
-Once the helptags have been generated (`:helptags ALL`), see `:h VimCompletesMe`
+Once the helptags have been generated (`:helptags ALL`), see `:h vim-fist`
 for usage.
 
 ## Usage
