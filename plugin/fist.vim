@@ -1,6 +1,7 @@
 " Fist of Vim - Super simple and fast gisting for Vim
+" Description: Main plugin file
 " Maintainer:  Akshay Hegde <http://github.com/ackyshake>
-" Version:     1.7
+" Version:     1.8
 " Website:     <http://github.com/ackyshake/vim-fist>
 
 " Vimscript Setup: {{{1

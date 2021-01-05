@@ -1,3 +1,9 @@
+" Fist of Vim - Super simple and fast gisting for Vim
+" Description: Autoloaded utility functions
+" Maintainer:  Akshay Hegde <http://github.com/ackyshake>
+" Version:     1.8
+" Website:     <http://github.com/ackyshake/vim-fist>
+
 " Functions: {{{1
 function! fist#fist(type, update, ...)
   let l:has_unnamedplus = has('unnamedplus')

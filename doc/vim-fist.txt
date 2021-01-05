@@ -171,5 +171,6 @@ your |vimrc|:
 <
 ------------------------------------------------------------------------------
 
+Documentation for Fist of Vim v1.8
 Template From: https://github.com/dahu/Area-41/
 vim:tw=78:et:ft=help:norl:
