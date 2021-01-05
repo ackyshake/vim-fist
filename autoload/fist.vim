@@ -1,11 +1,24 @@
 " Functions: {{{1
 function! fist#fist(type, update, ...)
-  if a:0                             " Invoked from visual mode
-    silent execute 'normal! gvy'
+  let l:has_unnamedplus = has('unnamedplus')
+  if a:0                             " invoked from visual mode
+    if l:has_unnamedplus
+      silent execute 'normal! gv"+y'
+    else
+      silent execute 'normal! gv"*y'
+    endif
   elseif a:type ==# "char"           " Invoked from a characterwise motion
-    silent execute "normal! `[v`]y"
+    if l:has_unnamedplus
+      silent execute 'normal! `[v`]"+y'
+    else
+      silent execute 'normal! `[v`]"*y'
+    endif
   else                               " Invoked from a linewise motion
-    silent execute "normal! '[V']y"
+    if l:has_unnamedplus
+      silent execute "normal! '[V']\"+y"
+    else
+      silent execute "normal! '[V']\"*y"
+    endif
   endif
 
   let s:fist_command = ""
@@ -18,7 +31,7 @@ function! fist#fist(type, update, ...)
   silent execute "!gist -Pc" . s:fist_command . "f " . bufname("%") . a:update
 
   redraw!
-  let @f = @*
+  let @f = l:has_unnamedplus ? @+ : @*
 endfunction
 
 function! fist#fistnew(type)
