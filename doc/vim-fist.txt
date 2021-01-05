@@ -124,16 +124,15 @@ following options:
 ------------------------------------------------------------------------------
                                                           *'g:fist_in_private'*
 Values: numeric                                                               ~
-Default: 0                                                                    ~
+Default: 1                                                                    ~
 
-By default, Fist of Vim will create a public Gist. Anyone can see this Gist.
+By default, Fist of Vim will create a private Gist. Only people that can
+access the link will see it.
 
-If you want to create a secret Gist, you could tell Fist of Vim to do so by
+If you want to create a public Gist, you could tell Fist of Vim to do so by
 putting the following in your |vimrc|:
 >
-    let g:fist_in_private = 1
-<
-Then, only people who you give the URL to, will be able to see this Gist.
+    let g:fist_in_private = 0
 
 ------------------------------------------------------------------------------
                                                        *'g:fist_opens_browser'*

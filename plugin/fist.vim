@@ -1,7 +1,7 @@
 " Fist of Vim - Super simple and fast gisting for Vim
-" Maintainer:  Akshay Hegde <http://github.com/ajh17>
+" Maintainer:  Akshay Hegde <http://github.com/ackyshake>
 " Version:     1.7
-" Website:     <http://github.com/ajh17/vim-fist>
+" Website:     <http://github.com/ackyshake/vim-fist>
 
 " Vimscript Setup: {{{1
 if exists("g:loaded_vimfist") || v:version < 703 || &compatible
@@ -14,7 +14,7 @@ let g:loaded_vimfist = 1
 
 " Options: {{{1
 if !exists('g:fist_in_private')
-  let g:fist_in_private = 0
+  let g:fist_in_private = 1
 endif
 
 if !exists('g:fist_opens_browser')
