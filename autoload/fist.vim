@@ -22,11 +22,11 @@ function! fist#fist(type, update, ...)
 endfunction
 
 function! fist#fistnew(type)
-  call s:fist(a:type, "")
+  call fist#fist(a:type, "")
 endfunction
 
 function! fist#fistupdate(type)
-  call s:fist(a:type, ' -u ' . @f)
+  call fist#fist(a:type, ' -u ' . @f)
 endfunction
 
 function! fist#fistlist()
